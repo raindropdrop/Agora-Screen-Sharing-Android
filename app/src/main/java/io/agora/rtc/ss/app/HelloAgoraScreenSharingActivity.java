@@ -108,27 +108,33 @@ public class HelloAgoraScreenSharingActivity extends Activity {
         setOffscreenPreview(screenWidth, screenHeight);
 
         if (mRtcEngine == null) {
-            mRtcEngine = RtcEngine.create(getApplicationContext(), getString(R.string.agora_app_id), new IRtcEngineEventHandler() {
-                @Override
-                public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
-                    Log.d(LOG_TAG, "onJoinChannelSuccess " + channel + " " + elapsed);
-                }
+            try {
+                mRtcEngine = RtcEngine.create(getApplicationContext(), getString(R.string.agora_app_id), new IRtcEngineEventHandler() {
+                    @Override
+                    public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
+                        Log.d(LOG_TAG, "onJoinChannelSuccess " + channel + " " + elapsed);
+                    }
 
-                @Override
-                public void onWarning(int warn) {
-                    Log.d(LOG_TAG, "onWarning " + warn);
-                }
+                    @Override
+                    public void onWarning(int warn) {
+                        Log.d(LOG_TAG, "onWarning " + warn);
+                    }
 
-                @Override
-                public void onError(int err) {
-                    Log.d(LOG_TAG, "onError " + err);
-                }
+                    @Override
+                    public void onError(int err) {
+                        Log.d(LOG_TAG, "onError " + err);
+                    }
 
-                @Override
-                public void onAudioRouteChanged(int routing) {
-                    Log.d(LOG_TAG, "onAudioRouteChanged " + routing);
-                }
-            });
+                    @Override
+                    public void onAudioRouteChanged(int routing) {
+                        Log.d(LOG_TAG, "onAudioRouteChanged " + routing);
+                    }
+                });
+            } catch (Exception e) {
+                Log.e(LOG_TAG, Log.getStackTraceString(e));
+
+                throw new RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e));
+            }
 
             mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
             mRtcEngine.enableVideo();

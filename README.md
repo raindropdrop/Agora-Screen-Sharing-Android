@@ -3,7 +3,7 @@
 
 *Read this in other languages: [English](README.en.md)*
 
-这个开源示例项目演示了如何用Agora.io RTC SDK实现屏幕共享。
+这个开源示例项目演示了如何用 Agora 视频 SDK 实现屏幕共享。
 
 在这个示例项目中包含了以下功能：
 
@@ -11,7 +11,7 @@
 
 你可以在这里查看Agora视频SDK的入门示例项目：[Agora-Android-Tutorial-1to1](https://github.com/AgoraIO/Agora-Android-Tutorial-1to1)
 
-你也可以查看 iOS 平台的示例项目： [Agora-Screen-Sharing-iOS](https://github.com/AgoraIO/Agora-Screen-Sharing-iOS)
+你也可以查看 iOS 平台的示例项目：[Agora-Screen-Sharing-iOS](https://github.com/AgoraIO/Agora-Screen-Sharing-iOS)
 
 ## 运行示例程序
 首先在 [Agora.io 注册](https://dashboard.agora.io/cn/signup/) 注册账号，并创建自己的测试项目，获取到 AppID。将 AppID 填写进 "app/src/main/res/values/strings.xml"
